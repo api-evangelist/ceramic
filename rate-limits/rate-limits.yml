@@ -1,0 +1,27 @@
+name: Ceramic Rate Limits
+description: Ceramic is a self-hosted decentralized data network protocol. Rate limits
+  are not enforced centrally by Ceramic — they depend on the infrastructure capacity
+  of each operator's node deployment. Throughput is constrained by CPU, memory, storage
+  IOPS, and network bandwidth of the operator's Ceramic node stack.
+url: https://developers.ceramic.network/
+rate_limits:
+- type: Infrastructure
+  description: Throughput scales with node resources. Baseline 4 vCPU / 4 GB ceramic-one
+    node can handle small app workloads. High-traffic nodes use 6 vCPU / 8 GB with
+    15,000 IOPS SSD storage for higher event throughput.
+  url: https://blog.ceramic.network/node-production-costs/
+- type: Ethereum Anchoring
+  description: Global stream ordering is achieved by anchoring Merkle tree roots to
+    Ethereum. Anchoring throughput depends on Ethereum RPC provider plan. Ceramic Anchor
+    Service (CAS) batches anchors periodically rather than per-event.
+  url: https://developers.ceramic.network/
+- type: Flight SQL Query
+  description: Analytical queries via Flight SQL on port 5102 are available when the
+    ceramic-one daemon is started with --experimental-features and --flight-sql-bind-address.
+    Query throughput is bounded by the node's compute and object store bandwidth.
+  url: https://developers.ceramic.network/docs/protocol/ceramic-one/usage/query
+notes:
+- Ceramic does not publish centralized rate limit tiers or API call quotas.
+- Operators running their own nodes control their own throughput limits.
+- Third-party node providers (e.g. QuickNode) may impose their own rate limits per
+  their subscription plans.

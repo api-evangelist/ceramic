@@ -1,0 +1,56 @@
+name: Ceramic FinOps
+description: Ceramic is a self-hosted protocol with no centralized subscription fees.
+  Total cost of ownership is driven by the infrastructure required to operate Ceramic
+  nodes. The four primary cost components are compute (ceramic-one, js-ceramic), managed
+  database (Postgres), and Ethereum RPC access for anchoring.
+url: https://blog.ceramic.network/node-production-costs/
+cost_model: infrastructure
+currency: USD
+cost_components:
+- name: Compute - ceramic-one
+  description: Core Rust daemon responsible for data storage and P2P network coordination.
+    Baseline needs 4 vCPU / 4 GB / 100 GB. High-traffic needs 6 vCPU / 8 GB / 500
+    GB SSD with 15,000 IOPS.
+  url: https://blog.ceramic.network/node-production-costs/
+  baseline_monthly_usd: 40
+  high_traffic_monthly_usd: 200
+- name: Compute - js-ceramic
+  description: JavaScript daemon providing HTTP API and stream state management. Requires
+    2 vCPU / 4 GB / 10 GB.
+  url: https://blog.ceramic.network/node-production-costs/
+  baseline_monthly_usd: 20
+  high_traffic_monthly_usd: 20
+- name: Managed Database - Postgres
+  description: PostgreSQL database for data indexing. Requires 2 vCPU / 4 GB / 10
+    GB.
+  url: https://blog.ceramic.network/node-production-costs/
+  baseline_monthly_usd: 20
+  high_traffic_monthly_usd: 40
+- name: Ethereum RPC - Anchoring
+  description: Ceramic Anchor Service (CAS) requires Ethereum RPC node access for
+    anchor validation. Third-party providers such as QuickNode offer tiered plans.
+  url: https://blog.ceramic.network/node-production-costs/
+  provider_options:
+  - provider: QuickNode
+    base_plan_monthly_usd: 10
+    base_plan_credits: 100000000
+    base_plan_credits_per_sec: 550
+    middle_plan_monthly_usd: 49
+    middle_plan_credits: 500000000
+    middle_plan_credits_per_sec: 2500
+    premium_plan_monthly_usd: 299
+    premium_plan_credits: 3000000000
+    premium_plan_credits_per_sec: 6000
+scenarios:
+- name: Small App (~10K MAU)
+  description: Single node baseline deployment.
+  estimated_monthly_usd: 106
+- name: Mid-Sized App (100K-500K MAU)
+  description: 2-node high-availability high-traffic deployment.
+  estimated_monthly_usd: 967
+notes:
+- Network egress charges apply on top of base infrastructure costs; ingress is typically
+  free.
+- Local development runs at no cost on localhost:5101.
+- Costs are estimates based on commodity cloud pricing as of 2024; actual costs vary
+  by cloud provider and region.

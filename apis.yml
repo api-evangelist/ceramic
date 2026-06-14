@@ -1,0 +1,90 @@
+name: Ceramic
+description: Ceramic is a decentralized data network built on a protocol for mutable
+  event streams anchored to blockchain. It provides REST APIs for creating and updating
+  mutable data streams, managing decentralized identifiers (DIDs), registering data
+  interests, and reading stream state and events across the composable data network.
+image: https://ceramic.network/favicon.ico
+url: https://developers.ceramic.network/
+tags:
+- Decentralized
+- Web3
+- Data Streams
+- DID
+- IPFS
+- Blockchain
+- Event Streaming
+apis:
+- name: Ceramic HTTP API
+  description: The Ceramic HTTP API is the standard lowest-level communication protocol
+    between clients and nodes on the Ceramic network, allowing applications to create
+    events, read stream state, manage interests, and monitor the event feed.
+  image: https://ceramic.network/favicon.ico
+  humanURL: https://developers.ceramic.network/build/http/api/
+  baseURL: http://localhost:5101/ceramic
+  tags:
+  - Streams
+  - Events
+  - DID
+  - Data
+  - Web3
+  properties:
+  - type: Documentation
+    url: https://developers.ceramic.network/build/http/api/
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/ceramicnetwork/rust-ceramic/main/api/ceramic.yaml
+  - type: GitHubOrganization
+    url: https://github.com/ceramicnetwork
+  contact:
+  - FN: Ceramic Support
+    url: https://forum.ceramic.network/
+    email: ''
+  x-apis-io-score:
+    info: 60
+    docs: 60
+    contact: 40
+    reliability: 0
+    security: 0
+    sdks: 0
+    monitoring: 0
+    openapi: 80
+common:
+- type: Website
+  url: https://ceramic.network/
+- type: Documentation
+  url: https://developers.ceramic.network/
+- type: GitHub
+  url: https://github.com/ceramicnetwork
+- type: Discord
+  url: https://chat.ceramic.network/
+- type: Forum
+  url: https://forum.ceramic.network/
+- type: Blog
+  url: https://blog.ceramic.network/
+- type: Twitter
+  url: https://twitter.com/ceramicnetwork
+- type: TermsOfService
+  url: https://ceramic.network/terms-of-service
+- type: PrivacyPolicy
+  url: https://ceramic.network/privacy-policy
+- type: Plans
+  url: https://ceramic.network/plans
+- type: RateLimits
+  url: https://ceramic.network/rate-limits
+- type: Status
+  url: https://ceramic.network/status
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
+tags:
+- Decentralized
+- Web3
+- Data Streams
+- DID
+- IPFS
+- Blockchain
+- Event Streaming
+- ComposeDB
+created: '2026-06-13'
+modified: '2026-06-13'
+url: https://raw.githubusercontent.com/api-evangelist/ceramic/refs/heads/main/apis.yml
+specificationVersion: '0.19'

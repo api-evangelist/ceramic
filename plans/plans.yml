@@ -1,0 +1,56 @@
+name: Ceramic Plans
+description: Ceramic is a self-hosted decentralized data network protocol. There
+  is no centralized SaaS pricing model — developers run their own Ceramic nodes or
+  use third-party node providers. Cost depends on infrastructure choices and usage
+  scale.
+url: https://ceramic.network/
+plans:
+- name: Self-Hosted Small App
+  description: Baseline single-node deployment suitable for small applications up
+    to approximately 10,000 monthly active users.
+  url: https://blog.ceramic.network/node-production-costs/
+  rate_limits:
+  - unit: node
+    limit: single node
+  infrastructure:
+  - component: ceramic-one
+    vcpu: 4
+    memory_gb: 4
+    storage_gb: 100
+  - component: js-ceramic
+    vcpu: 2
+    memory_gb: 4
+    storage_gb: 10
+  - component: postgres
+    vcpu: 2
+    memory_gb: 4
+    storage_gb: 10
+  estimated_monthly_cost_usd: 106
+- name: Self-Hosted Mid-Sized App
+  description: High-traffic two-node HA configuration for applications with 100,000
+    to 500,000 monthly active users.
+  url: https://blog.ceramic.network/node-production-costs/
+  rate_limits:
+  - unit: node
+    limit: 2-node HA
+  infrastructure:
+  - component: ceramic-one
+    vcpu: 6
+    memory_gb: 8
+    storage_gb: 500
+    iops: 15000
+  - component: js-ceramic
+    vcpu: 2
+    memory_gb: 4
+    storage_gb: 10
+  - component: postgres
+    vcpu: 2
+    memory_gb: 4
+    storage_gb: 10
+  estimated_monthly_cost_usd: 967
+- name: Local Development
+  description: Run a local Ceramic node for development and testing at no cost. Defaults
+    to localhost:5101.
+  url: https://developers.ceramic.network/docs/protocol/ceramic-one/usage/installation
+  rate_limits: []
+  estimated_monthly_cost_usd: 0
