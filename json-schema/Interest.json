@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ceramic/main/json-schema/Interest.json",
+  "title": "A recon interest",
+  "description": "Describes a recon interest range to store and synchronize",
+  "type": "object",
+  "required": ["sep", "sepValue"],
+  "properties": {
+    "sep": {
+      "type": "string",
+      "description": "Separator key, typically 'model' (sometimes called sort_key)"
+    },
+    "sepValue": {
+      "type": "string",
+      "description": "Multibase encoded separator value (sometimes called sort_value, typically a stream ID)"
+    },
+    "controller": {
+      "type": "string",
+      "description": "Decentralized identifier (DID) string"
+    },
+    "streamId": {
+      "type": "string",
+      "description": "Multibase encoded stream ID."
+    }
+  }
+}

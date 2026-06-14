@@ -1,0 +1,20 @@
+{
+  "summary": "Register interest for a sort key",
+  "description": "Example request to POST /ceramic/interests to register interest in events for a specific model on the Ceramic network.",
+  "request": {
+    "method": "POST",
+    "url": "http://localhost:5101/ceramic/interests",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "sep": "model",
+      "sepValue": "k2t6wyfsu4pg0t2n4j8ms3s33xsgqjhtto04mvq8w5a2v5xo48idyz38l7ydki",
+      "controller": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK"
+    }
+  },
+  "response": {
+    "status": 204,
+    "description": "Interest registered successfully"
+  }
+}

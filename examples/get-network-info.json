@@ -1,0 +1,18 @@
+{
+  "summary": "Get Ceramic network info",
+  "description": "Example request to GET /ceramic/config/network to retrieve information about the Ceramic network the node is connected to.",
+  "request": {
+    "method": "GET",
+    "url": "http://localhost:5101/ceramic/config/network",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "name": "mainnet"
+    }
+  }
+}

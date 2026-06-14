@@ -1,0 +1,24 @@
+{
+  "summary": "Get the current state of a Ceramic stream",
+  "description": "Example request to GET /ceramic/streams/{stream_id} to retrieve the current state of a Ceramic stream.",
+  "request": {
+    "method": "GET",
+    "url": "http://localhost:5101/ceramic/streams/k2t6wyfsu4pg0t2n4j8ms3s33xsgqjhtto04mvq8w5a2v5xo48idyz38l7ydki",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "id": "k2t6wyfsu4pg0t2n4j8ms3s33xsgqjhtto04mvq8w5a2v5xo48idyz38l7ydki",
+      "event_cid": "bagcqcerae5oqoge4c5kzl7wnymq4stdesmfqxnos2lspvcwpitdreytkpjxa",
+      "controller": "did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK",
+      "dimensions": {
+        "model": "uoW1vZGVss7tHpXKf5lm8Xbvy_iCqaSwCCxALYZqp4Q"
+      },
+      "data": "uomdkYXRhkWVoZWxsb2V3b3JsZA"
+    }
+  }
+}

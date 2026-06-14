@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ceramic/main/json-schema/EventsGet.json",
+  "title": "Information about multiple events.",
+  "description": "Ceramic event keys as part of a Ceramic Stream",
+  "type": "object",
+  "required": ["events", "resumeOffset", "isComplete"],
+  "properties": {
+    "events": {
+      "type": "array",
+      "description": "An array of events",
+      "items": {
+        "$ref": "Event.json"
+      }
+    },
+    "resumeOffset": {
+      "type": "integer",
+      "description": "An integer specifying where to resume the request. Only works correctly for the same input parameters."
+    },
+    "isComplete": {
+      "type": "boolean",
+      "description": "A boolean specifying if there are more events to be fetched. Repeat with the resumeOffset to get next set."
+    }
+  }
+}

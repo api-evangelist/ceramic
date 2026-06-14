@@ -1,0 +1,24 @@
+{
+  "summary": "Get the event feed",
+  "description": "Example request to GET /ceramic/feed/events to retrieve new event keys since a resume token.",
+  "request": {
+    "method": "GET",
+    "url": "http://localhost:5101/ceramic/feed/events?limit=100&includeData=full",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "events": [
+        {
+          "id": "bagcqcerae5oqoge4c5kzl7wnymq4stdesmfqxnos2lspvcwpitdreytkpjxa",
+          "data": "uomdkYXRhkWVoZWxsb2V3b3JsZA"
+        }
+      ],
+      "resumeToken": "1700000000000000000"
+    }
+  }
+}

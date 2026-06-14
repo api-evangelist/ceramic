@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ceramic/main/json-schema/NetworkInfo.json",
+  "title": "Information about the Ceramic network",
+  "description": "Ceramic network information",
+  "type": "object",
+  "required": ["name"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the Ceramic network"
+    }
+  }
+}

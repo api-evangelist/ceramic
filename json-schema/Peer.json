@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ceramic/main/json-schema/Peer.json",
+  "title": "Information about a connected peer",
+  "description": "Information about a connected peer",
+  "type": "object",
+  "required": ["id", "addresses"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "DID of peer"
+    },
+    "addresses": {
+      "type": "array",
+      "description": "List of known multiaddress of peer, will always include the peer id",
+      "items": {
+        "type": "string",
+        "description": "Multiaddress where peer may be dialed"
+      }
+    }
+  }
+}

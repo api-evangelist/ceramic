@@ -1,0 +1,18 @@
+{
+  "summary": "Create a new Ceramic event",
+  "description": "Example request to POST /ceramic/events to create a new event on the Ceramic network.",
+  "request": {
+    "method": "POST",
+    "url": "http://localhost:5101/ceramic/events",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "data": "uomdkYXRhkWVoZWxsb2V3b3JsZA"
+    }
+  },
+  "response": {
+    "status": 204,
+    "description": "Event created successfully"
+  }
+}

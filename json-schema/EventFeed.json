@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ceramic/main/json-schema/EventFeed.json",
+  "title": "Ceramic Event feed data",
+  "description": "Ceramic event keys as part of a Ceramic Stream",
+  "type": "object",
+  "required": ["events", "resumeToken"],
+  "properties": {
+    "events": {
+      "type": "array",
+      "description": "An array of events. For now, the event data payload is empty.",
+      "items": {
+        "$ref": "Event.json"
+      }
+    },
+    "resumeToken": {
+      "type": "string",
+      "description": "The token/highwater mark to used as resumeAt on a future request"
+    }
+  }
+}

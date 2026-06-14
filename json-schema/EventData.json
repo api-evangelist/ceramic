@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ceramic/main/json-schema/EventData.json",
+  "title": "A Ceramic Event Data Payload",
+  "description": "The data for a Ceramic event that is part of a Ceramic Stream",
+  "type": "object",
+  "required": ["data"],
+  "properties": {
+    "data": {
+      "type": "string",
+      "description": "Multibase encoding of event data."
+    }
+  }
+}

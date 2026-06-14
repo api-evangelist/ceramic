@@ -1,0 +1,91 @@
+{
+  "@context": {
+    "@vocab": "https://ceramic.network/vocab#",
+    "ceramic": "https://ceramic.network/vocab#",
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "did": "https://www.w3.org/ns/did#",
+    "Event": "ceramic:Event",
+    "EventData": "ceramic:EventData",
+    "EventFeed": "ceramic:EventFeed",
+    "EventsGet": "ceramic:EventsGet",
+    "Interest": "ceramic:Interest",
+    "InterestsGet": "ceramic:InterestsGet",
+    "StreamState": "ceramic:StreamState",
+    "NetworkInfo": "ceramic:NetworkInfo",
+    "Peer": "ceramic:Peer",
+    "Peers": "ceramic:Peers",
+    "id": {
+      "@id": "ceramic:id",
+      "@type": "xsd:string"
+    },
+    "data": {
+      "@id": "ceramic:data",
+      "@type": "xsd:string"
+    },
+    "events": {
+      "@id": "ceramic:events",
+      "@container": "@set"
+    },
+    "resumeToken": {
+      "@id": "ceramic:resumeToken",
+      "@type": "xsd:string"
+    },
+    "resumeOffset": {
+      "@id": "ceramic:resumeOffset",
+      "@type": "xsd:integer"
+    },
+    "isComplete": {
+      "@id": "ceramic:isComplete",
+      "@type": "xsd:boolean"
+    },
+    "sep": {
+      "@id": "ceramic:sep",
+      "@type": "xsd:string"
+    },
+    "sepValue": {
+      "@id": "ceramic:sepValue",
+      "@type": "xsd:string"
+    },
+    "controller": {
+      "@id": "did:controller",
+      "@type": "xsd:string"
+    },
+    "streamId": {
+      "@id": "ceramic:streamId",
+      "@type": "xsd:string"
+    },
+    "event_cid": {
+      "@id": "ceramic:event_cid",
+      "@type": "xsd:string"
+    },
+    "dimensions": {
+      "@id": "ceramic:dimensions",
+      "@type": "@json"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "schema:version",
+      "@type": "xsd:string"
+    },
+    "message": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "addresses": {
+      "@id": "ceramic:addresses",
+      "@container": "@set"
+    },
+    "peers": {
+      "@id": "ceramic:peers",
+      "@container": "@set"
+    },
+    "interests": {
+      "@id": "ceramic:interests",
+      "@container": "@set"
+    }
+  }
+}

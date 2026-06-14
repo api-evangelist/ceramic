@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ceramic/main/json-schema/InterestsGet.json",
+  "title": "Information about multiple interests.",
+  "description": "Ceramic interest keys",
+  "type": "object",
+  "required": ["interests"],
+  "properties": {
+    "interests": {
+      "type": "array",
+      "description": "An array of interests",
+      "items": {
+        "type": "object",
+        "required": ["data"],
+        "properties": {
+          "data": {
+            "type": "string",
+            "description": "The multbase encoded bytes of the interest."
+          }
+        }
+      }
+    }
+  }
+}

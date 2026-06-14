@@ -1,0 +1,19 @@
+{
+  "summary": "Get a Ceramic event by ID",
+  "description": "Example request to GET /ceramic/events/{event_id} to retrieve event data by its CID.",
+  "request": {
+    "method": "GET",
+    "url": "http://localhost:5101/ceramic/events/bagcqcerae5oqoge4c5kzl7wnymq4stdesmfqxnos2lspvcwpitdreytkpjxa",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "id": "bagcqcerae5oqoge4c5kzl7wnymq4stdesmfqxnos2lspvcwpitdreytkpjxa",
+      "data": "uomdkYXRhkWVoZWxsb2V3b3JsZA"
+    }
+  }
+}

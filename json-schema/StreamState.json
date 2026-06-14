@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ceramic/main/json-schema/StreamState.json",
+  "title": "State of a Ceramic stream",
+  "description": "The state of a Ceramic stream as defined by the stream type aggregation and conflict resolution rules.",
+  "type": "object",
+  "required": ["id", "event_cid", "controller", "dimensions", "data"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Multibase encoding of the stream id"
+    },
+    "event_cid": {
+      "type": "string",
+      "description": "CID of the event that produced this state"
+    },
+    "controller": {
+      "type": "string",
+      "description": "Controller of the stream"
+    },
+    "dimensions": {
+      "type": "object",
+      "description": "Dimensions of the stream, each value is multibase encoded."
+    },
+    "data": {
+      "type": "string",
+      "description": "Multibase encoding of the data of the stream. Content is stream type specific."
+    }
+  }
+}

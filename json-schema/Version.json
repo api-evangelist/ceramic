@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/ceramic/main/json-schema/Version.json",
+  "title": "Version",
+  "description": "Version of the Ceramic node in semver format, e.g. 2.1.0",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Version of the Ceramic node"
+    }
+  }
+}

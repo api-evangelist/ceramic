@@ -1,0 +1,25 @@
+{
+  "summary": "Get connected peers",
+  "description": "Example request to GET /ceramic/peers to retrieve the list of connected peers.",
+  "request": {
+    "method": "GET",
+    "url": "http://localhost:5101/ceramic/peers",
+    "headers": {}
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "peers": [
+        {
+          "id": "did:key:z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP",
+          "addresses": [
+            "/ip4/192.168.1.2/tcp/4001/p2p/12D3KooWGzKBPzf2n2d1xo4XjpT8eHT4mz7PBY6SQGTuKZL7jNPy"
+          ]
+        }
+      ]
+    }
+  }
+}
