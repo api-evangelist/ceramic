@@ -56,7 +56,7 @@ common:
   url: https://github.com/ceramicnetwork
 - type: Discord
   url: https://chat.ceramic.network/
-- type: Forum
+- type: Forums
   url: https://forum.ceramic.network/
 - type: Blog
   url: https://blog.ceramic.network/
