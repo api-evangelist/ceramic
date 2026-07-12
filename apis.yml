@@ -48,6 +48,8 @@ apis:
     monitoring: 0
     openapi: 80
 common:
+- type: DomainSecurity
+  url: security/ceramic-domain-security.yml
 - type: Website
   url: https://ceramic.network/
 - type: Documentation
