@@ -1,0 +1,48 @@
+openapi: 3.0.0
+info:
+  description: 'This is the Ceramic API for working with streams and events
+
+    '
+  version: 0.58.0
+  title: Ceramic Config Liveness API
+  license:
+    name: MIT
+    url: https://mit-license.org/
+servers:
+- url: /ceramic
+tags:
+- name: Liveness
+paths:
+  /liveness:
+    options:
+      summary: cors
+      responses:
+        '200':
+          description: cors
+      tags:
+      - Liveness
+    get:
+      summary: Test the liveness of the Ceramic node
+      responses:
+        '200':
+          description: success
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - Liveness
+components:
+  schemas:
+    ErrorResponse:
+      title: Error response
+      description: Error response
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Error message

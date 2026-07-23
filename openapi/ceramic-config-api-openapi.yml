@@ -1,0 +1,46 @@
+openapi: 3.0.0
+info:
+  description: 'This is the Ceramic API for working with streams and events
+
+    '
+  version: 0.58.0
+  title: Ceramic Config API
+  license:
+    name: MIT
+    url: https://mit-license.org/
+servers:
+- url: /ceramic
+tags:
+- name: Config
+paths:
+  /config/network:
+    options:
+      summary: cors
+      responses:
+        '200':
+          description: cors
+      tags:
+      - Config
+    get:
+      summary: Get info about the Ceramic network the node is connected to
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NetworkInfo'
+      tags:
+      - Config
+components:
+  schemas:
+    NetworkInfo:
+      title: Information about the Ceramic network
+      description: Ceramic network information
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          type: string
+          description: Name of the Ceramic network

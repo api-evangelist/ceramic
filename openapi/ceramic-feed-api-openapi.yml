@@ -1,0 +1,157 @@
+openapi: 3.0.0
+info:
+  description: 'This is the Ceramic API for working with streams and events
+
+    '
+  version: 0.58.0
+  title: Ceramic Config Feed API
+  license:
+    name: MIT
+    url: https://mit-license.org/
+servers:
+- url: /ceramic
+tags:
+- name: Feed
+paths:
+  /feed/events:
+    options:
+      summary: cors
+      responses:
+        '200':
+          description: cors
+      tags:
+      - Feed
+    get:
+      summary: Get all new event keys since resume token
+      parameters:
+      - name: resumeAt
+        in: query
+        description: token that designates the point to resume from, that is find keys added after this point
+        schema:
+          type: string
+        required: false
+      - name: limit
+        in: query
+        description: The maximum number of events to return, default is 100. The max with data is 10000.
+        required: false
+        schema:
+          type: integer
+      - name: includeData
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - none
+          - full
+        description: "Whether to include the event data (carfile) in the response. In the future, only the payload or other options may be supported:\n  * `none` - Empty, only the event ID is returned\n  * `full` - The entire event carfile (including the envelope and payload)\n"
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventFeed'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - Feed
+  /feed/resumeToken:
+    options:
+      summary: cors
+      responses:
+        '200':
+          description: cors
+      tags:
+      - Feed
+    get:
+      summary: Get the current (maximum) highwater mark/continuation token of the feed. Allows starting `feed/events` from 'now'.
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                - resumeToken
+                properties:
+                  resumeToken:
+                    type: string
+                    description: The highwater mark/resume token to use with the event/feed endpoint.
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - Feed
+components:
+  schemas:
+    EventFeed:
+      title: Ceramic Event feed data
+      description: Ceramic event keys as part of a Ceramic Stream
+      type: object
+      required:
+      - events
+      - resumeToken
+      properties:
+        events:
+          type: array
+          items:
+            schema: null
+            $ref: '#/components/schemas/Event'
+          description: An array of events. For now, the event data payload is empty.
+        resumeToken:
+          type: string
+          description: The token/highwater mark to used as resumeAt on a future request
+    Event:
+      title: A Ceramic Event
+      description: A Ceramic event as part of a Ceramic Stream. Contains both the root CID used to identify the Event as well as the Event payload data.
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: Multibase encoding of event root CID bytes.
+        data:
+          type: string
+          description: Multibase encoding of event data.
+    BadRequestResponse:
+      title: Response to a bad request (400)
+      description: Bad request (input error)
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+    ErrorResponse:
+      title: Error response
+      description: Error response
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Error message

@@ -1,0 +1,215 @@
+openapi: 3.0.0
+info:
+  description: 'This is the Ceramic API for working with streams and events
+
+    '
+  version: 0.58.0
+  title: Ceramic Config Experimental API
+  license:
+    name: MIT
+    url: https://mit-license.org/
+servers:
+- url: /ceramic
+tags:
+- name: Experimental
+paths:
+  /experimental/interests:
+    options:
+      summary: cors
+      parameters:
+      - name: peerId
+        in: query
+        required: false
+        description: Only return interests from the specified peer ID.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: cors
+      tags:
+      - Experimental
+    get:
+      summary: Get the interests stored on the node
+      parameters:
+      - name: peerId
+        in: query
+        required: false
+        description: Only return interests from the specified peer ID.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InterestsGet'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - Experimental
+  /experimental/events/{sep}/{sepValue}:
+    options:
+      summary: cors
+      parameters:
+      - name: sep
+        in: path
+        description: Name of the field in the Events header that holds the separator value e.g. 'model'
+        schema:
+          type: string
+        required: true
+      - name: sepValue
+        in: path
+        description: The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID
+        schema:
+          type: string
+        required: true
+      responses:
+        '200':
+          description: cors
+      tags:
+      - Experimental
+    get:
+      summary: Get events matching the interest stored on the node
+      parameters:
+      - name: sep
+        in: path
+        description: Name of the field in the Events header that holds the separator value e.g. 'model'
+        schema:
+          type: string
+        required: true
+      - name: sepValue
+        in: path
+        description: The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID
+        schema:
+          type: string
+        required: true
+      - name: controller
+        in: query
+        description: the controller to filter (DID string)
+        required: false
+        schema:
+          type: string
+      - name: streamId
+        in: query
+        description: the stream to filter (multibase encoded stream ID)
+        required: false
+        schema:
+          type: string
+      - name: offset
+        in: query
+        description: token that designates the point to resume from, that is find keys added after this point
+        schema:
+          type: integer
+        required: false
+      - name: limit
+        in: query
+        description: the maximum number of events to return, default is 10000.
+        required: false
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventsGet'
+        '400':
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BadRequestResponse'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - Experimental
+components:
+  schemas:
+    EventsGet:
+      title: Information about multiple events.
+      description: Ceramic event keys as part of a Ceramic Stream
+      type: object
+      required:
+      - events
+      - resumeOffset
+      - isComplete
+      properties:
+        events:
+          type: array
+          items:
+            schema: null
+            $ref: '#/components/schemas/Event'
+          description: An array of events
+        resumeOffset:
+          type: integer
+          description: An integer specifying where to resume the request. Only works correctly for the same input parameters.
+        isComplete:
+          type: boolean
+          description: A boolean specifying if there are more events to be fetched. Repeat with the resumeOffset to get next set.
+    BadRequestResponse:
+      title: Response to a bad request (400)
+      description: Bad request (input error)
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+    ErrorResponse:
+      title: Error response
+      description: Error response
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Error message
+    InterestsGet:
+      title: Information about multiple interests.
+      description: Ceramic interest keys
+      type: object
+      required:
+      - interests
+      properties:
+        interests:
+          type: array
+          items:
+            type: object
+            required:
+            - data
+            properties:
+              data:
+                type: string
+                description: The multbase encoded bytes of the interest.
+          description: An array of interests
+    Event:
+      title: A Ceramic Event
+      description: A Ceramic event as part of a Ceramic Stream. Contains both the root CID used to identify the Event as well as the Event payload data.
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: Multibase encoding of event root CID bytes.
+        data:
+          type: string
+          description: Multibase encoding of event data.
