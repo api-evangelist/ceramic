@@ -3,6 +3,18 @@ description: Ceramic is a decentralized data network built on a protocol for mut
   event streams anchored to blockchain. It provides REST APIs for creating and updating
   mutable data streams, managing decentralized identifiers (DIDs), registering data
   interests, and reading stream state and events across the composable data network.
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 image: https://ceramic.network/favicon.ico
 url: https://developers.ceramic.network/
 tags:
@@ -14,39 +26,146 @@ tags:
 - Blockchain
 - Event Streaming
 apis:
-- name: Ceramic HTTP API
-  description: The Ceramic HTTP API is the standard lowest-level communication protocol
-    between clients and nodes on the Ceramic network, allowing applications to create
-    events, read stream state, manage interests, and monitor the event feed.
-  image: https://ceramic.network/favicon.ico
+- aid: ceramic:ceramic-config-api
+  name: Ceramic Config API
+  description: The Config API from Ceramic — 1 operation(s) for config.
+  humanURL: https://developers.ceramic.network/build/http/api/
+  baseURL: http://localhost:5101/ceramic
+  tags:
+  - Config
+  properties:
+  - type: OpenAPI
+    url: openapi/ceramic-config-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ceramic.network/build/http/api/
+  - type: GitHubOrganization
+    url: https://github.com/ceramicnetwork
+- aid: ceramic:ceramic-debug-api
+  name: Ceramic Debug API
+  description: The Debug API from Ceramic — 1 operation(s) for debug.
+  humanURL: https://developers.ceramic.network/build/http/api/
+  baseURL: http://localhost:5101/ceramic
+  tags:
+  - Debug
+  properties:
+  - type: OpenAPI
+    url: openapi/ceramic-debug-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ceramic.network/build/http/api/
+  - type: GitHubOrganization
+    url: https://github.com/ceramicnetwork
+- aid: ceramic:ceramic-events-api
+  name: Ceramic Events API
+  description: The Events API from Ceramic — 2 operation(s) for events.
+  humanURL: https://developers.ceramic.network/build/http/api/
+  baseURL: http://localhost:5101/ceramic
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/ceramic-events-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ceramic.network/build/http/api/
+  - type: GitHubOrganization
+    url: https://github.com/ceramicnetwork
+- aid: ceramic:ceramic-experimental-api
+  name: Ceramic Experimental API
+  description: The Experimental API from Ceramic — 2 operation(s) for experimental.
+  humanURL: https://developers.ceramic.network/build/http/api/
+  baseURL: http://localhost:5101/ceramic
+  tags:
+  - Experimental
+  properties:
+  - type: OpenAPI
+    url: openapi/ceramic-experimental-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ceramic.network/build/http/api/
+  - type: GitHubOrganization
+    url: https://github.com/ceramicnetwork
+- aid: ceramic:ceramic-feed-api
+  name: Ceramic Feed API
+  description: The Feed API from Ceramic — 2 operation(s) for feed.
+  humanURL: https://developers.ceramic.network/build/http/api/
+  baseURL: http://localhost:5101/ceramic
+  tags:
+  - Feed
+  properties:
+  - type: OpenAPI
+    url: openapi/ceramic-feed-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ceramic.network/build/http/api/
+  - type: GitHubOrganization
+    url: https://github.com/ceramicnetwork
+- aid: ceramic:ceramic-interests-api
+  name: Ceramic Interests API
+  description: The Interests API from Ceramic — 2 operation(s) for interests.
+  humanURL: https://developers.ceramic.network/build/http/api/
+  baseURL: http://localhost:5101/ceramic
+  tags:
+  - Interests
+  properties:
+  - type: OpenAPI
+    url: openapi/ceramic-interests-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ceramic.network/build/http/api/
+  - type: GitHubOrganization
+    url: https://github.com/ceramicnetwork
+- aid: ceramic:ceramic-liveness-api
+  name: Ceramic Liveness API
+  description: The Liveness API from Ceramic — 1 operation(s) for liveness.
+  humanURL: https://developers.ceramic.network/build/http/api/
+  baseURL: http://localhost:5101/ceramic
+  tags:
+  - Liveness
+  properties:
+  - type: OpenAPI
+    url: openapi/ceramic-liveness-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ceramic.network/build/http/api/
+  - type: GitHubOrganization
+    url: https://github.com/ceramicnetwork
+- aid: ceramic:ceramic-peers-api
+  name: Ceramic Peers API
+  description: The Peers API from Ceramic — 1 operation(s) for peers.
+  humanURL: https://developers.ceramic.network/build/http/api/
+  baseURL: http://localhost:5101/ceramic
+  tags:
+  - Peers
+  properties:
+  - type: OpenAPI
+    url: openapi/ceramic-peers-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ceramic.network/build/http/api/
+  - type: GitHubOrganization
+    url: https://github.com/ceramicnetwork
+- aid: ceramic:ceramic-streams-api
+  name: Ceramic Streams API
+  description: The Streams API from Ceramic — 1 operation(s) for streams.
   humanURL: https://developers.ceramic.network/build/http/api/
   baseURL: http://localhost:5101/ceramic
   tags:
   - Streams
-  - Events
-  - DID
-  - Data
-  - Web3
   properties:
+  - type: OpenAPI
+    url: openapi/ceramic-streams-api-openapi.yml
   - type: Documentation
     url: https://developers.ceramic.network/build/http/api/
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/ceramicnetwork/rust-ceramic/main/api/ceramic.yaml
   - type: GitHubOrganization
     url: https://github.com/ceramicnetwork
-  contact:
-  - FN: Ceramic Support
-    url: https://forum.ceramic.network/
-    email: ''
-  x-apis-io-score:
-    info: 60
-    docs: 60
-    contact: 40
-    reliability: 0
-    security: 0
-    sdks: 0
-    monitoring: 0
-    openapi: 80
+- aid: ceramic:ceramic-version-api
+  name: Ceramic Version API
+  description: The Version API from Ceramic — 1 operation(s) for version.
+  humanURL: https://developers.ceramic.network/build/http/api/
+  baseURL: http://localhost:5101/ceramic
+  tags:
+  - Version
+  properties:
+  - type: OpenAPI
+    url: openapi/ceramic-version-api-openapi.yml
+  - type: Documentation
+    url: https://developers.ceramic.network/build/http/api/
+  - type: GitHubOrganization
+    url: https://github.com/ceramicnetwork
 common:
 - type: AgenticAccess
   url: agentic-access/ceramic-agentic-access.yml
