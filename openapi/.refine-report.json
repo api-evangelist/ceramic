@@ -1,0 +1,32 @@
+{
+  "provider": "ceramic",
+  "sources": [
+    "ceramic-config-api-openapi.yml",
+    "ceramic-debug-api-openapi.yml",
+    "ceramic-events-api-openapi.yml",
+    "ceramic-experimental-api-openapi.yml",
+    "ceramic-feed-api-openapi.yml",
+    "ceramic-interests-api-openapi.yml",
+    "ceramic-liveness-api-openapi.yml",
+    "ceramic-peers-api-openapi.yml",
+    "ceramic-streams-api-openapi.yml",
+    "ceramic-version-api-openapi.yml"
+  ],
+  "outputs": [
+    "ceramic-config-api-openapi.yml",
+    "ceramic-debug-api-openapi.yml",
+    "ceramic-events-api-openapi.yml",
+    "ceramic-experimental-api-openapi.yml",
+    "ceramic-feed-api-openapi.yml",
+    "ceramic-interests-api-openapi.yml",
+    "ceramic-liveness-api-openapi.yml",
+    "ceramic-peers-api-openapi.yml",
+    "ceramic-streams-api-openapi.yml",
+    "ceramic-version-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

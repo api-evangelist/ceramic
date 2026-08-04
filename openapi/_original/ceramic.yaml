@@ -1,0 +1,791 @@
+openapi: 3.0.0
+info:
+  description: >
+    This is the Ceramic API for working with streams and events
+  version: 0.58.0
+  title: Ceramic API
+  #license:
+  #  name: Apache 2.0
+  #  url: http://www.apache.org/licenses/LICENSE-2.0.html
+  license:
+    name: MIT
+    url: https://mit-license.org/
+
+servers:
+  - url: /ceramic
+
+paths:
+  /liveness:
+    options:
+      summary: cors
+      responses:
+        "200":
+          description: cors
+    get:
+      summary: Test the liveness of the Ceramic node
+      responses:
+        "200":
+          description: success
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /debug/heap:
+    options:
+      summary: cors
+      responses:
+        "200":
+          description: cors
+    get:
+      summary: Get the heap statistics of the Ceramic node
+      responses:
+        "200":
+          description: success
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /version:
+    options:
+      summary: cors
+      responses:
+        "200":
+          description: cors
+    get:
+      summary: Get the version of the Ceramic node
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Version"
+          description: success
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    post:
+      summary: Get the version of the Ceramic node
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Version"
+          description: success
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /events:
+    options:
+      summary: cors
+      responses:
+        "200":
+          description: cors
+    post:
+      summary: Creates a new event
+      requestBody:
+        $ref: "#/components/requestBodies/EventData"
+      responses:
+        "204":
+          description: success
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /events/{event_id}:
+    options:
+      summary: cors
+      parameters:
+        - name: event_id
+          in: path
+          required: true
+          description: Name of the field in the Events header that holds the separator value e.g. 'model'
+          schema:
+            type: string
+      responses:
+        "200":
+          description: cors
+    get:
+      summary: Get event data
+      parameters:
+        - name: event_id
+          in: path
+          description: CID of the root block of the event, used to identify of the event
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponse"
+        "404":
+          description: Event not found
+          content:
+            text/plain:
+              schema:
+                type: string
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  /streams/{stream_id}:
+    options:
+      summary: cors
+      parameters:
+        - name: stream_id
+          in: path
+          required: true
+          description: Multibase encoded stream ID
+          schema:
+            type: string
+      responses:
+        "200":
+          description: cors
+    get:
+      summary: Get stream state
+      parameters:
+        - name: stream_id
+          in: path
+          description: Multibase encoded stream ID
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StreamState"
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponse"
+        "404":
+          description: Stream not found
+          content:
+            text/plain:
+              schema:
+                type: string
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  "/interests/{sort_key}/{sort_value}":
+    options:
+      summary: cors
+      parameters:
+        - name: sort_key
+          in: path
+          description: Name of the field in the Events header that holds the separator value e.g. 'model'
+          schema:
+            type: string
+          required: true
+        - name: sort_value
+          in: path
+          description: The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: cors
+    post:
+      summary: Register interest for a sort key
+      parameters:
+        - name: sort_key
+          in: path
+          description: name of the sort_key
+          schema:
+            type: string
+          required: true
+        - name: sort_value
+          in: path
+          description: value associated with the sort key
+          schema:
+            type: string
+          required: true
+        - name: controller
+          in: query
+          description: the controller to register interest for
+          required: false
+          schema:
+            type: string
+        - name: streamId
+          in: query
+          description: the stream to register interest for
+          required: false
+          schema:
+            type: string
+      responses:
+        "204":
+          description: success
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  "/interests":
+    options:
+      summary: cors
+      responses:
+        "200":
+          description: cors
+    post:
+      summary: Register interest for a sort key
+      requestBody:
+        $ref: "#/components/requestBodies/Interest"
+      responses:
+        "204":
+          description: success
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  "/config/network":
+    options:
+      summary: cors
+      responses:
+        "200":
+          description: cors
+    get:
+      summary: Get info about the Ceramic network the node is connected to
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NetworkInfo"
+  /experimental/interests:
+    options:
+      summary: cors
+      parameters:
+        - name: peerId
+          in: query
+          required: false
+          description: Only return interests from the specified peer ID.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: cors
+    get:
+      summary: Get the interests stored on the node
+      parameters:
+        - name: peerId
+          in: query
+          required: false
+          description: Only return interests from the specified peer ID.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/InterestsGet"
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  "/experimental/events/{sep}/{sepValue}":
+    options:
+      summary: cors
+      parameters:
+        - name: sep
+          in: path
+          description: Name of the field in the Events header that holds the separator value e.g. 'model'
+          schema:
+            type: string
+          required: true
+        - name: sepValue
+          in: path
+          description: The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID
+          schema:
+            type: string
+          required: true
+      responses:
+        "200":
+          description: cors
+    get:
+      summary: Get events matching the interest stored on the node
+      parameters:
+        - name: sep
+          in: path
+          description: Name of the field in the Events header that holds the separator value e.g. 'model'
+          schema:
+            type: string
+          required: true
+        - name: sepValue
+          in: path
+          description: The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID
+          schema:
+            type: string
+          required: true
+        - name: controller
+          in: query
+          description: the controller to filter (DID string)
+          required: false
+          schema:
+            type: string
+        - name: streamId
+          in: query
+          description: the stream to filter (multibase encoded stream ID)
+          required: false
+          schema:
+            type: string
+        - name: offset
+          in: query
+          description: token that designates the point to resume from, that is find keys added after this point
+          schema:
+            type: integer
+          required: false
+        - name: limit
+          in: query
+          description: the maximum number of events to return, default is 10000.
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EventsGet"
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  "/feed/events":
+    options:
+      summary: cors
+      responses:
+        "200":
+          description: cors
+    get:
+      summary: Get all new event keys since resume token
+      parameters:
+        - name: resumeAt
+          in: query
+          description: token that designates the point to resume from, that is find keys added after this point
+          schema:
+            type: string
+          required: false
+        - name: limit
+          in: query
+          description: The maximum number of events to return, default is 100. The max with data is 10000.
+          required: false
+          schema:
+            type: integer
+        - name: includeData
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [none, full]
+          description: >
+            Whether to include the event data (carfile) in the response.
+            In the future, only the payload or other options may be supported:
+              * `none` - Empty, only the event ID is returned
+              * `full` - The entire event carfile (including the envelope and payload)
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EventFeed"
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  "/feed/resumeToken":
+    options:
+      summary: cors
+      responses:
+        "200":
+          description: cors
+    get:
+      summary: Get the current (maximum) highwater mark/continuation token of the feed. Allows starting `feed/events` from 'now'.
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - resumeToken
+                properties:
+                  resumeToken:
+                    type: string
+                    description: The highwater mark/resume token to use with the event/feed endpoint.
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+  "/peers":
+    options:
+      summary: cors
+      parameters:
+        - name: addresses
+          in: query
+          description: Multiaddress of peer to connect to, at least one address must contain the peer id.
+          schema:
+            type: array
+            items:
+              type: string
+          required: true
+      responses:
+        "200":
+          description: cors
+    get:
+      summary: Get list of connected peers
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Peers"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    post:
+      summary: Connect to a peer
+      parameters:
+        - name: addresses
+          in: query
+          description: Multiaddress of peer to connect to, at least one address must contain the peer id.
+          schema:
+            type: array
+            items:
+              type: string
+          required: true
+      responses:
+        "204":
+          description: success
+        "400":
+          description: bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BadRequestResponse"
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+components:
+  requestBodies:
+    EventData:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/EventData"
+      description: Event to add to the node
+      required: true
+    Message:
+      content:
+        application/cbor-seq:
+          schema:
+            format: byte
+            type: string
+      description: Recon message to send
+      required: true
+    Interest:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Interest"
+      description: Interest to register on the node
+      required: true
+  schemas:
+    Version:
+      description: Version of the Ceramic node in semver format, e.g. 2.1.0
+      properties:
+        version:
+          type: string
+          description: Version of the Ceramic node
+    BadRequestResponse:
+      title: Response to a bad request (400)
+      description: Bad request (input error)
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+    Event:
+      title: A Ceramic Event
+      description: A Ceramic event as part of a Ceramic Stream. Contains both the root CID used to identify the Event as well as the Event payload data.
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: Multibase encoding of event root CID bytes.
+        data:
+          type: string
+          description: Multibase encoding of event data.
+    EventData:
+      title: A Ceramic Event Data Payload
+      description: The data for a Ceramic event that is part of a Ceramic Stream
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: string
+          description: Multibase encoding of event data.
+    EventFeed:
+      title: Ceramic Event feed data
+      description: Ceramic event keys as part of a Ceramic Stream
+      type: object
+      required:
+        - events
+        - resumeToken
+      properties:
+        events:
+          type: array
+          items:
+            schema:
+            $ref: "#/components/schemas/Event"
+          description: An array of events. For now, the event data payload is empty.
+        resumeToken:
+          type: string
+          description: The token/highwater mark to used as resumeAt on a future request
+    EventsGet:
+      title: Information about multiple events.
+      description: Ceramic event keys as part of a Ceramic Stream
+      type: object
+      required:
+        - events
+        - resumeOffset
+        - isComplete
+      properties:
+        events:
+          type: array
+          items:
+            schema:
+            $ref: "#/components/schemas/Event"
+          description: An array of events
+        resumeOffset:
+          type: integer
+          description: An integer specifying where to resume the request. Only works correctly for the same input parameters.
+        isComplete:
+          type: boolean
+          description: A boolean specifying if there are more events to be fetched. Repeat with the resumeOffset to get next set.
+    InterestsGet:
+      title: Information about multiple interests.
+      description: Ceramic interest keys
+      type: object
+      required:
+        - interests
+      properties:
+        interests:
+          type: array
+          items:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: string
+                description: The multbase encoded bytes of the interest.
+          description: An array of interests
+    ErrorResponse:
+      title: Error response
+      description: Error response
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: Error message
+    Interest:
+      title: A recon interest
+      description: Describes a recon interest range to store and synchronize
+      type: object
+      required:
+        - sep
+        - sepValue
+      properties:
+        sep:
+          type: string
+          description: Separator key, typically 'model' (sometimes called sort_key)
+        sepValue:
+          type: string
+          description: Multibase encoded separator value (sometimes called sort_value, typically a stream ID)
+        controller:
+          type: string
+          description: Decentralized identifier (DID) string
+        streamId:
+          type: string
+          description: Multibase encoded stream ID.
+    NetworkInfo:
+      title: Information about the Ceramic network
+      description: Ceramic network information
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: Name of the Ceramic network
+    StreamState:
+      title: State of a Ceramic stream
+      description: The state of a Ceramic stream as defined by the stream type aggregation and conflict resolution rules.
+      type: object
+      required:
+        - id
+        - event_cid
+        - controller
+        - dimensions
+        - data
+      properties:
+        id:
+          type: string
+          description: Multibase encoding of the stream id
+        event_cid:
+          type: string
+          description: CID of the event that produced this state
+        controller:
+          type: string
+          description: Controller of the stream
+        dimensions:
+          type: object
+          description: Dimensions of the stream, each value is multibase encoded.
+        data:
+          type: string
+          description: Multibase encoding of the data of the stream. Content is stream type specific.
+    Peers:
+      title: List of Peers
+      type: object
+      required:
+        - peers
+      properties:
+        peers:
+          type: array
+          items:
+            schema:
+            $ref: "#/components/schemas/Peer"
+    Peer:
+      title: Information about a connected peer
+      description: Information about a connected peer
+      type: object
+      required:
+        - id
+        - addresses
+      properties:
+        id:
+          type: string
+          description: DID of peer
+        addresses:
+          type: array
+          description: List of known multiaddress of peer, will always include the peer id
+          items:
+            type: string
+            description: Multiaddress where peer may be dialed
