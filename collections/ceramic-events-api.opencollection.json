@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ceramic Config Events API",
+    "version": "0.58.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Creates a new event",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/ceramic/events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new event"
+        },
+        {
+          "info": {
+            "name": "cors",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "/ceramic/events"
+          },
+          "docs": "cors"
+        },
+        {
+          "info": {
+            "name": "Get event data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/ceramic/events/:event_id",
+            "params": [
+              {
+                "name": "event_id",
+                "value": "",
+                "type": "path",
+                "description": "CID of the root block of the event, used to identify of the event"
+              }
+            ]
+          },
+          "docs": "Get event data"
+        },
+        {
+          "info": {
+            "name": "cors",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "/ceramic/events/:event_id",
+            "params": [
+              {
+                "name": "event_id",
+                "value": "",
+                "type": "path",
+                "description": "Name of the field in the Events header that holds the separator value e.g. 'model'"
+              }
+            ]
+          },
+          "docs": "cors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

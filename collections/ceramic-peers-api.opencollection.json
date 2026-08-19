@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ceramic Config Peers API",
+    "version": "0.58.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Peers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get list of connected peers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/ceramic/peers"
+          },
+          "docs": "Get list of connected peers"
+        },
+        {
+          "info": {
+            "name": "Connect to a peer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/ceramic/peers",
+            "params": [
+              {
+                "name": "addresses",
+                "value": "",
+                "type": "query",
+                "description": "Multiaddress of peer to connect to, at least one address must contain the peer id."
+              }
+            ]
+          },
+          "docs": "Connect to a peer"
+        },
+        {
+          "info": {
+            "name": "cors",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "/ceramic/peers",
+            "params": [
+              {
+                "name": "addresses",
+                "value": "",
+                "type": "query",
+                "description": "Multiaddress of peer to connect to, at least one address must contain the peer id."
+              }
+            ]
+          },
+          "docs": "cors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,559 @@
+{
+  "item": [
+    {
+      "id": "694419b7-1892-41b8-b22e-9ae78c6f4c62",
+      "name": "Interests",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "56a4236c-e43d-447e-969c-03e5f043de94",
+          "name": "cors",
+          "request": {
+            "name": "cors",
+            "description": {},
+            "url": {
+              "path": [
+                "interests",
+                ":sort_key",
+                ":sort_value"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sort_key",
+                  "description": "(Required) Name of the field in the Events header that holds the separator value e.g. 'model'"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sort_value",
+                  "description": "(Required) The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID"
+                }
+              ]
+            },
+            "method": "OPTIONS",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0322ed65-83c4-4e14-987d-04645a708442",
+              "name": "cors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interests",
+                    ":sort_key",
+                    ":sort_value"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sort_key",
+                      "description": "(Required) Name of the field in the Events header that holds the separator value e.g. 'model'"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sort_value",
+                      "description": "(Required) The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID"
+                    }
+                  ]
+                },
+                "method": "OPTIONS",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd9d1e8d-08bb-4fd4-8c2f-6b403c64073f",
+          "name": "Register interest for a sort key",
+          "request": {
+            "name": "Register interest for a sort key",
+            "description": {},
+            "url": {
+              "path": [
+                "interests",
+                ":sort_key",
+                ":sort_value"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "controller",
+                  "value": "<string>",
+                  "description": "the controller to register interest for"
+                },
+                {
+                  "disabled": false,
+                  "key": "streamId",
+                  "value": "<string>",
+                  "description": "the stream to register interest for"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sort_key",
+                  "description": "(Required) name of the sort_key"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sort_value",
+                  "description": "(Required) value associated with the sort key"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d1289035-f788-4267-8768-2ad0b9b77741",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interests",
+                    ":sort_key",
+                    ":sort_value"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "controller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "streamId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sort_key",
+                      "description": "(Required) name of the sort_key"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sort_value",
+                      "description": "(Required) value associated with the sort key"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "10a4e274-b2e4-4be0-84d9-a4c7ca9cf188",
+              "name": "bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interests",
+                    ":sort_key",
+                    ":sort_value"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "controller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "streamId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sort_key",
+                      "description": "(Required) name of the sort_key"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sort_value",
+                      "description": "(Required) value associated with the sort key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02b0ae9e-1109-4f5c-970a-c4896b06ea8c",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interests",
+                    ":sort_key",
+                    ":sort_value"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "controller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "streamId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sort_key",
+                      "description": "(Required) name of the sort_key"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sort_value",
+                      "description": "(Required) value associated with the sort key"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ecf578a9-7d63-4fc1-9df1-9729a33900fb",
+          "name": "cors",
+          "request": {
+            "name": "cors",
+            "description": {},
+            "url": {
+              "path": [
+                "interests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "OPTIONS",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3aa521e3-4c02-4d12-958d-7b8f50a5dd37",
+              "name": "cors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "OPTIONS",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e58c8270-3d83-48f6-965f-df657fa6869b",
+          "name": "Register interest for a sort key",
+          "request": {
+            "name": "Register interest for a sort key",
+            "description": {},
+            "url": {
+              "path": [
+                "interests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sep\": \"<string>\",\n  \"sepValue\": \"<string>\",\n  \"controller\": \"<string>\",\n  \"streamId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab160bb6-c5ff-4496-afb9-50ebd3aa5769",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "403ef670-bc21-47ce-b633-14adaef62c3c",
+              "name": "bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2a62d64a-cc09-46eb-bf45-bb293ece3f77",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "interests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/ceramic",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d9eabf60-0db1-453c-bfea-76b6b301f61e",
+    "name": "Ceramic Config Interests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the Ceramic API for working with streams and events\n",
+      "type": "text/plain"
+    }
+  }
+}

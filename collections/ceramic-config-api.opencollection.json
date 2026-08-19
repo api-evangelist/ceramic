@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ceramic Config API",
+    "version": "0.58.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Config",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get info about the Ceramic network the node is connected to",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/ceramic/config/network"
+          },
+          "docs": "Get info about the Ceramic network the node is connected to"
+        },
+        {
+          "info": {
+            "name": "cors",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "/ceramic/config/network"
+          },
+          "docs": "cors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

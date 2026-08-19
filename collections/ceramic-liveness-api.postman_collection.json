@@ -1,0 +1,183 @@
+{
+  "item": [
+    {
+      "id": "b12b3343-f014-4fc2-8485-6d81a1834e7b",
+      "name": "Liveness",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "84af0211-718a-4661-8f1f-85fec5a0b4e6",
+          "name": "cors",
+          "request": {
+            "name": "cors",
+            "description": {},
+            "url": {
+              "path": [
+                "liveness"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "OPTIONS",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9de43a8c-8ae7-4728-b6d7-a80c181b51cf",
+              "name": "cors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "liveness"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "OPTIONS",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3304437e-c0d0-4f02-96e8-db7c5903ad28",
+          "name": "Test the liveness of the Ceramic node",
+          "request": {
+            "name": "Test the liveness of the Ceramic node",
+            "description": {},
+            "url": {
+              "path": [
+                "liveness"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e4a9133-c3b7-437f-9f65-fbcd2dd24b3c",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "liveness"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d4081f2-7c1a-43cf-8eac-19a24b17cbcc",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "liveness"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/ceramic",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9f80e41c-3f08-4f6a-8698-40aed35077a0",
+    "name": "Ceramic Config Liveness API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the Ceramic API for working with streams and events\n",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ceramic Config Experimental API",
+    "version": "0.58.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Experimental",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the interests stored on the node",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/ceramic/experimental/interests",
+            "params": [
+              {
+                "name": "peerId",
+                "value": "",
+                "type": "query",
+                "description": "Only return interests from the specified peer ID."
+              }
+            ]
+          },
+          "docs": "Get the interests stored on the node"
+        },
+        {
+          "info": {
+            "name": "cors",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "/ceramic/experimental/interests",
+            "params": [
+              {
+                "name": "peerId",
+                "value": "",
+                "type": "query",
+                "description": "Only return interests from the specified peer ID."
+              }
+            ]
+          },
+          "docs": "cors"
+        },
+        {
+          "info": {
+            "name": "Get events matching the interest stored on the node",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/ceramic/experimental/events/:sep/:sepValue",
+            "params": [
+              {
+                "name": "sep",
+                "value": "",
+                "type": "path",
+                "description": "Name of the field in the Events header that holds the separator value e.g. 'model'"
+              },
+              {
+                "name": "sepValue",
+                "value": "",
+                "type": "path",
+                "description": "The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID"
+              },
+              {
+                "name": "controller",
+                "value": "",
+                "type": "query",
+                "description": "the controller to filter (DID string)"
+              },
+              {
+                "name": "streamId",
+                "value": "",
+                "type": "query",
+                "description": "the stream to filter (multibase encoded stream ID)"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "token that designates the point to resume from, that is find keys added after this point"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "the maximum number of events to return, default is 10000."
+              }
+            ]
+          },
+          "docs": "Get events matching the interest stored on the node"
+        },
+        {
+          "info": {
+            "name": "cors",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "/ceramic/experimental/events/:sep/:sepValue",
+            "params": [
+              {
+                "name": "sep",
+                "value": "",
+                "type": "path",
+                "description": "Name of the field in the Events header that holds the separator value e.g. 'model'"
+              },
+              {
+                "name": "sepValue",
+                "value": "",
+                "type": "path",
+                "description": "The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID"
+              }
+            ]
+          },
+          "docs": "cors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

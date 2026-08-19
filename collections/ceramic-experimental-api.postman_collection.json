@@ -1,0 +1,640 @@
+{
+  "item": [
+    {
+      "id": "a34d993a-3bce-487e-badd-02d2384d99a8",
+      "name": "Experimental",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "018481f5-923a-4357-aa9c-b0c8c7bf5972",
+          "name": "cors",
+          "request": {
+            "name": "cors",
+            "description": {},
+            "url": {
+              "path": [
+                "experimental",
+                "interests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "peerId",
+                  "value": "<string>",
+                  "description": "Only return interests from the specified peer ID."
+                }
+              ],
+              "variable": []
+            },
+            "method": "OPTIONS",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "417b4f6e-b23d-464c-be57-b4bb1a03ffdc",
+              "name": "cors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "experimental",
+                    "interests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "peerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "method": "OPTIONS",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2fe1369-e758-4b51-98b2-08f81ceae3d9",
+          "name": "Get the interests stored on the node",
+          "request": {
+            "name": "Get the interests stored on the node",
+            "description": {},
+            "url": {
+              "path": [
+                "experimental",
+                "interests"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "peerId",
+                  "value": "<string>",
+                  "description": "Only return interests from the specified peer ID."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5db787c6-434f-4a30-a9b5-5a0f429f0f7e",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "experimental",
+                    "interests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "peerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"interests\": [\n    {\n      \"data\": \"string\"\n    },\n    {\n      \"data\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5f737a00-2462-40d5-a77a-1cc532ee72bd",
+              "name": "bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "experimental",
+                    "interests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "peerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "663b6de1-ef8f-4f06-9679-b84346b01854",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "experimental",
+                    "interests"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "peerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5fb929a-22f8-4a1d-a781-63bab83befe2",
+          "name": "cors",
+          "request": {
+            "name": "cors",
+            "description": {},
+            "url": {
+              "path": [
+                "experimental",
+                "events",
+                ":sep",
+                ":sepValue"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sep",
+                  "description": "(Required) Name of the field in the Events header that holds the separator value e.g. 'model'"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sepValue",
+                  "description": "(Required) The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID"
+                }
+              ]
+            },
+            "method": "OPTIONS",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aef41c21-a179-4efa-9335-2524dffb7957",
+              "name": "cors",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "experimental",
+                    "events",
+                    ":sep",
+                    ":sepValue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sep",
+                      "description": "(Required) Name of the field in the Events header that holds the separator value e.g. 'model'"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sepValue",
+                      "description": "(Required) The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID"
+                    }
+                  ]
+                },
+                "method": "OPTIONS",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89b4cc59-2536-405a-9b80-a4ea9835373b",
+          "name": "Get events matching the interest stored on the node",
+          "request": {
+            "name": "Get events matching the interest stored on the node",
+            "description": {},
+            "url": {
+              "path": [
+                "experimental",
+                "events",
+                ":sep",
+                ":sepValue"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "controller",
+                  "value": "<string>",
+                  "description": "the controller to filter (DID string)"
+                },
+                {
+                  "disabled": false,
+                  "key": "streamId",
+                  "value": "<string>",
+                  "description": "the stream to filter (multibase encoded stream ID)"
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "token that designates the point to resume from, that is find keys added after this point"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "the maximum number of events to return, default is 10000."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sep",
+                  "description": "(Required) Name of the field in the Events header that holds the separator value e.g. 'model'"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sepValue",
+                  "description": "(Required) The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ab2d7482-c158-4230-b251-7d29fa626cac",
+              "name": "success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "experimental",
+                    "events",
+                    ":sep",
+                    ":sepValue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "controller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "streamId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sep",
+                      "description": "(Required) Name of the field in the Events header that holds the separator value e.g. 'model'"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sepValue",
+                      "description": "(Required) The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"events\": [\n    {\n      \"id\": \"string\",\n      \"data\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"data\": \"string\"\n    }\n  ],\n  \"resumeOffset\": 3370,\n  \"isComplete\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2be58def-1cac-4c3c-bd65-c7d2dfc760cd",
+              "name": "bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "experimental",
+                    "events",
+                    ":sep",
+                    ":sepValue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "controller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "streamId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sep",
+                      "description": "(Required) Name of the field in the Events header that holds the separator value e.g. 'model'"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sepValue",
+                      "description": "(Required) The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9fd7d55-da53-4ee1-bbc5-a14b849e2dc1",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "experimental",
+                    "events",
+                    ":sep",
+                    ":sepValue"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "controller",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "streamId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sep",
+                      "description": "(Required) Name of the field in the Events header that holds the separator value e.g. 'model'"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sepValue",
+                      "description": "(Required) The value of the field in the Events header indicated by the separator key e.g. multibase encoded model ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/ceramic",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "24ac3d31-d2a0-43b6-8913-f1420b62dc9a",
+    "name": "Ceramic Config Experimental API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "This is the Ceramic API for working with streams and events\n",
+      "type": "text/plain"
+    }
+  }
+}

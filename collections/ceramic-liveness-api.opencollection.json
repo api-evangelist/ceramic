@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ceramic Config Liveness API",
+    "version": "0.58.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Liveness",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Test the liveness of the Ceramic node",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/ceramic/liveness"
+          },
+          "docs": "Test the liveness of the Ceramic node"
+        },
+        {
+          "info": {
+            "name": "cors",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "/ceramic/liveness"
+          },
+          "docs": "cors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

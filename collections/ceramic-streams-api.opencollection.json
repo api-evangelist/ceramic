@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ceramic Config Streams API",
+    "version": "0.58.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Streams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get stream state",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/ceramic/streams/:stream_id",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Multibase encoded stream ID"
+              }
+            ]
+          },
+          "docs": "Get stream state"
+        },
+        {
+          "info": {
+            "name": "cors",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "/ceramic/streams/:stream_id",
+            "params": [
+              {
+                "name": "stream_id",
+                "value": "",
+                "type": "path",
+                "description": "Multibase encoded stream ID"
+              }
+            ]
+          },
+          "docs": "cors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

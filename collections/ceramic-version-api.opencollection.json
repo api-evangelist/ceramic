@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ceramic Config Version API",
+    "version": "0.58.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Version",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the version of the Ceramic node",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/ceramic/version"
+          },
+          "docs": "Get the version of the Ceramic node"
+        },
+        {
+          "info": {
+            "name": "Get the version of the Ceramic node",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "/ceramic/version"
+          },
+          "docs": "Get the version of the Ceramic node"
+        },
+        {
+          "info": {
+            "name": "cors",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "/ceramic/version"
+          },
+          "docs": "cors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

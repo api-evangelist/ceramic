@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ceramic Config Feed API",
+    "version": "0.58.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Feed",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all new event keys since resume token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/ceramic/feed/events",
+            "params": [
+              {
+                "name": "resumeAt",
+                "value": "",
+                "type": "query",
+                "description": "token that designates the point to resume from, that is find keys added after this point"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of events to return, default is 100. The max with data is 10000."
+              },
+              {
+                "name": "includeData",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include the event data (carfile) in the response. In the future, only the payload or other options may be supported:\n  * `none` - Empty, only the event ID is returned\n  * `full` - The entire event carfile (including the envelope and payload)\n"
+              }
+            ]
+          },
+          "docs": "Get all new event keys since resume token"
+        },
+        {
+          "info": {
+            "name": "cors",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "/ceramic/feed/events"
+          },
+          "docs": "cors"
+        },
+        {
+          "info": {
+            "name": "Get the current (maximum) highwater mark/continuation token of the feed. Allows starting `feed/events` from 'now'.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "/ceramic/feed/resumeToken"
+          },
+          "docs": "Get the current (maximum) highwater mark/continuation token of the feed. Allows starting `feed/events` from 'now'."
+        },
+        {
+          "info": {
+            "name": "cors",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "/ceramic/feed/resumeToken"
+          },
+          "docs": "cors"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
