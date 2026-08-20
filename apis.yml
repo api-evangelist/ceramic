@@ -60,6 +60,8 @@ apis:
   humanURL: https://developers.ceramic.network/build/http/api/
   baseURL: http://localhost:5101/ceramic
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
