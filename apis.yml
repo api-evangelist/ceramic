@@ -29,6 +29,9 @@ accessModel:
   method: derived
 image: https://ceramic.network/favicon.ico
 url: https://developers.ceramic.network/
+x-docs-platform: docusaurus
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-21
 tags:
 - Decentralized
 - Web3
