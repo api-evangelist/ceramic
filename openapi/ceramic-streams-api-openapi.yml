@@ -1,10 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  description: 'This is the Ceramic API for working with streams and events
-
-    '
+  description: This is the Ceramic API for working with streams and events
   version: 0.58.0
-  title: Ceramic Config Streams API
+  title: Ceramic Streams API
   license:
     name: MIT
     url: https://mit-license.org/
@@ -28,6 +26,8 @@ paths:
           description: cors
       tags:
       - Streams
+      operationId: optionsStreamsByStreamId
+      x-operation-id-source: derived
     get:
       summary: Get stream state
       parameters:
@@ -64,18 +64,10 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       tags:
       - Streams
+      operationId: getStreamsByStreamId
+      x-operation-id-source: derived
 components:
   schemas:
-    ErrorResponse:
-      title: Error response
-      description: Error response
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
-          description: Error message
     BadRequestResponse:
       title: Response to a bad request (400)
       description: Bad request (input error)
@@ -86,6 +78,16 @@ components:
         message:
           type: string
           description: Message describing the error
+    ErrorResponse:
+      title: Error response
+      description: Error response
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Error message
     StreamState:
       title: State of a Ceramic stream
       description: The state of a Ceramic stream as defined by the stream type aggregation and conflict resolution rules.

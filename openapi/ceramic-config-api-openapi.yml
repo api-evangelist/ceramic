@@ -1,8 +1,6 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  description: 'This is the Ceramic API for working with streams and events
-
-    '
+  description: This is the Ceramic API for working with streams and events
   version: 0.58.0
   title: Ceramic Config API
   license:
@@ -21,6 +19,8 @@ paths:
           description: cors
       tags:
       - Config
+      operationId: optionsConfigNetwork
+      x-operation-id-source: derived
     get:
       summary: Get info about the Ceramic network the node is connected to
       responses:
@@ -32,6 +32,8 @@ paths:
                 $ref: '#/components/schemas/NetworkInfo'
       tags:
       - Config
+      operationId: getConfigNetwork
+      x-operation-id-source: derived
 components:
   schemas:
     NetworkInfo:

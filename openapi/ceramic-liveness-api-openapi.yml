@@ -1,10 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  description: 'This is the Ceramic API for working with streams and events
-
-    '
+  description: This is the Ceramic API for working with streams and events
   version: 0.58.0
-  title: Ceramic Config Liveness API
+  title: Ceramic Liveness API
   license:
     name: MIT
     url: https://mit-license.org/
@@ -21,6 +19,8 @@ paths:
           description: cors
       tags:
       - Liveness
+      operationId: optionsLiveness
+      x-operation-id-source: derived
     get:
       summary: Test the liveness of the Ceramic node
       responses:
@@ -34,6 +34,8 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       tags:
       - Liveness
+      operationId: getLiveness
+      x-operation-id-source: derived
 components:
   schemas:
     ErrorResponse:

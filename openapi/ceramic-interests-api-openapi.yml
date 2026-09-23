@@ -1,10 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  description: 'This is the Ceramic API for working with streams and events
-
-    '
+  description: This is the Ceramic API for working with streams and events
   version: 0.58.0
-  title: Ceramic Config Interests API
+  title: Ceramic Interests API
   license:
     name: MIT
     url: https://mit-license.org/
@@ -34,6 +32,8 @@ paths:
           description: cors
       tags:
       - Interests
+      operationId: optionsInterestsBySortKeyBySortValue
+      x-operation-id-source: derived
     post:
       summary: Register interest for a sort key
       parameters:
@@ -78,6 +78,8 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       tags:
       - Interests
+      operationId: postInterestsBySortKeyBySortValue
+      x-operation-id-source: derived
   /interests:
     options:
       summary: cors
@@ -86,6 +88,8 @@ paths:
           description: cors
       tags:
       - Interests
+      operationId: optionsInterests
+      x-operation-id-source: derived
     post:
       summary: Register interest for a sort key
       requestBody:
@@ -107,36 +111,10 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
       tags:
       - Interests
+      operationId: postInterests
+      x-operation-id-source: derived
 components:
-  requestBodies:
-    Interest:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Interest'
-      description: Interest to register on the node
-      required: true
   schemas:
-    Interest:
-      title: A recon interest
-      description: Describes a recon interest range to store and synchronize
-      type: object
-      required:
-      - sep
-      - sepValue
-      properties:
-        sep:
-          type: string
-          description: Separator key, typically 'model' (sometimes called sort_key)
-        sepValue:
-          type: string
-          description: Multibase encoded separator value (sometimes called sort_value, typically a stream ID)
-        controller:
-          type: string
-          description: Decentralized identifier (DID) string
-        streamId:
-          type: string
-          description: Multibase encoded stream ID.
     BadRequestResponse:
       title: Response to a bad request (400)
       description: Bad request (input error)
@@ -157,3 +135,31 @@ components:
         message:
           type: string
           description: Error message
+    Interest:
+      title: A recon interest
+      description: Describes a recon interest range to store and synchronize
+      type: object
+      required:
+      - sep
+      - sepValue
+      properties:
+        sep:
+          type: string
+          description: Separator key, typically 'model' (sometimes called sort_key)
+        sepValue:
+          type: string
+          description: Multibase encoded separator value (sometimes called sort_value, typically a stream ID)
+        controller:
+          type: string
+          description: Decentralized identifier (DID) string
+        streamId:
+          type: string
+          description: Multibase encoded stream ID.
+  requestBodies:
+    Interest:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Interest'
+      description: Interest to register on the node
+      required: true
