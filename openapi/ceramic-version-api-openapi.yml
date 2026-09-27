@@ -61,12 +61,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Version:
-      description: Version of the Ceramic node in semver format, e.g. 2.1.0
-      properties:
-        version:
-          type: string
-          description: Version of the Ceramic node
     ErrorResponse:
       title: Error response
       description: Error response
@@ -77,3 +71,9 @@ components:
         message:
           type: string
           description: Error message
+    Version:
+      description: Version of the Ceramic node in semver format, e.g. 2.1.0
+      properties:
+        version:
+          type: string
+          description: Version of the Ceramic node

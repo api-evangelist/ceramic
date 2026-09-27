@@ -78,16 +78,6 @@ components:
         message:
           type: string
           description: Message describing the error
-    ErrorResponse:
-      title: Error response
-      description: Error response
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
-          description: Error message
     StreamState:
       title: State of a Ceramic stream
       description: The state of a Ceramic stream as defined by the stream type aggregation and conflict resolution rules.
@@ -114,3 +104,13 @@ components:
         data:
           type: string
           description: Multibase encoding of the data of the stream. Content is stream type specific.
+    ErrorResponse:
+      title: Error response
+      description: Error response
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Error message

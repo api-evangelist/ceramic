@@ -111,16 +111,6 @@ components:
         message:
           type: string
           description: Message describing the error
-    EventData:
-      title: A Ceramic Event Data Payload
-      description: The data for a Ceramic event that is part of a Ceramic Stream
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: string
-          description: Multibase encoding of event data.
     Event:
       title: A Ceramic Event
       description: A Ceramic event as part of a Ceramic Stream. Contains both the root CID used to identify the Event as well as the Event payload data.
@@ -144,6 +134,16 @@ components:
         message:
           type: string
           description: Error message
+    EventData:
+      title: A Ceramic Event Data Payload
+      description: The data for a Ceramic event that is part of a Ceramic Stream
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: string
+          description: Multibase encoding of event data.
   requestBodies:
     EventData:
       content:
