@@ -147,6 +147,27 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    EventsGet:
+      title: Information about multiple events.
+      description: Ceramic event keys as part of a Ceramic Stream
+      type: object
+      required:
+      - events
+      - resumeOffset
+      - isComplete
+      properties:
+        events:
+          type: array
+          items:
+            schema: null
+            $ref: '#/components/schemas/Event'
+          description: An array of events
+        resumeOffset:
+          type: integer
+          description: An integer specifying where to resume the request. Only works correctly for the same input parameters.
+        isComplete:
+          type: boolean
+          description: A boolean specifying if there are more events to be fetched. Repeat with the resumeOffset to get next set.
     BadRequestResponse:
       title: Response to a bad request (400)
       description: Bad request (input error)
@@ -198,24 +219,3 @@ components:
         message:
           type: string
           description: Error message
-    EventsGet:
-      title: Information about multiple events.
-      description: Ceramic event keys as part of a Ceramic Stream
-      type: object
-      required:
-      - events
-      - resumeOffset
-      - isComplete
-      properties:
-        events:
-          type: array
-          items:
-            schema: null
-            $ref: '#/components/schemas/Event'
-          description: An array of events
-        resumeOffset:
-          type: integer
-          description: An integer specifying where to resume the request. Only works correctly for the same input parameters.
-        isComplete:
-          type: boolean
-          description: A boolean specifying if there are more events to be fetched. Repeat with the resumeOffset to get next set.

@@ -123,6 +123,16 @@ components:
       description: Interest to register on the node
       required: true
   schemas:
+    ErrorResponse:
+      title: Error response
+      description: Error response
+      type: object
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Error message
     Interest:
       title: A recon interest
       description: Describes a recon interest range to store and synchronize
@@ -153,13 +163,3 @@ components:
         message:
           type: string
           description: Message describing the error
-    ErrorResponse:
-      title: Error response
-      description: Error response
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
-          description: Error message

@@ -100,7 +100,25 @@ paths:
       operationId: getEventsByEventId
       x-operation-id-source: derived
 components:
+  requestBodies:
+    EventData:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/EventData'
+      description: Event to add to the node
+      required: true
   schemas:
+    EventData:
+      title: A Ceramic Event Data Payload
+      description: The data for a Ceramic event that is part of a Ceramic Stream
+      type: object
+      required:
+      - data
+      properties:
+        data:
+          type: string
+          description: Multibase encoding of event data.
     BadRequestResponse:
       title: Response to a bad request (400)
       description: Bad request (input error)
@@ -134,21 +152,3 @@ components:
         message:
           type: string
           description: Error message
-    EventData:
-      title: A Ceramic Event Data Payload
-      description: The data for a Ceramic event that is part of a Ceramic Stream
-      type: object
-      required:
-      - data
-      properties:
-        data:
-          type: string
-          description: Multibase encoding of event data.
-  requestBodies:
-    EventData:
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/EventData'
-      description: Event to add to the node
-      required: true
