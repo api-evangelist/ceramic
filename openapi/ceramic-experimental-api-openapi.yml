@@ -147,27 +147,16 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    EventsGet:
-      title: Information about multiple events.
-      description: Ceramic event keys as part of a Ceramic Stream
+    ErrorResponse:
+      title: Error response
+      description: Error response
       type: object
       required:
-      - events
-      - resumeOffset
-      - isComplete
+      - message
       properties:
-        events:
-          type: array
-          items:
-            schema: null
-            $ref: '#/components/schemas/Event'
-          description: An array of events
-        resumeOffset:
-          type: integer
-          description: An integer specifying where to resume the request. Only works correctly for the same input parameters.
-        isComplete:
-          type: boolean
-          description: A boolean specifying if there are more events to be fetched. Repeat with the resumeOffset to get next set.
+        message:
+          type: string
+          description: Error message
     BadRequestResponse:
       title: Response to a bad request (400)
       description: Bad request (input error)
@@ -196,6 +185,27 @@ components:
                 type: string
                 description: The multbase encoded bytes of the interest.
           description: An array of interests
+    EventsGet:
+      title: Information about multiple events.
+      description: Ceramic event keys as part of a Ceramic Stream
+      type: object
+      required:
+      - events
+      - resumeOffset
+      - isComplete
+      properties:
+        events:
+          type: array
+          items:
+            schema: null
+            $ref: '#/components/schemas/Event'
+          description: An array of events
+        resumeOffset:
+          type: integer
+          description: An integer specifying where to resume the request. Only works correctly for the same input parameters.
+        isComplete:
+          type: boolean
+          description: A boolean specifying if there are more events to be fetched. Repeat with the resumeOffset to get next set.
     Event:
       title: A Ceramic Event
       description: A Ceramic event as part of a Ceramic Stream. Contains both the root CID used to identify the Event as well as the Event payload data.
@@ -209,13 +219,3 @@ components:
         data:
           type: string
           description: Multibase encoding of event data.
-    ErrorResponse:
-      title: Error response
-      description: Error response
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
-          description: Error message
