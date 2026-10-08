@@ -184,6 +184,8 @@ apis:
   - type: GitHubOrganization
     url: https://github.com/ceramicnetwork
 common:
+- type: FinOps
+  url: finops/finops.yml
 - type: AgenticAccess
   url: agentic-access/ceramic-agentic-access.yml
 - type: DomainSecurity
