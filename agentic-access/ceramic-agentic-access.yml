@@ -1,21 +1,25 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/ceramic.yaml
+source: openapi/ceramic-config-api-openapi.yml, openapi/ceramic-debug-api-openapi.yml, openapi/ceramic-events-api-openapi.yml,
+  openapi/ceramic-experimental-api-openapi.yml, openapi/ceramic-feed-api-openapi.yml, openapi/ceramic-interests-api-openapi.yml,
+  openapi/ceramic-liveness-api-openapi.yml, openapi/ceramic-peers-api-openapi.yml, openapi/ceramic-streams-api-openapi.yml,
+  openapi/ceramic-version-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 30
   by_action_class:
-    connected: 25
-    acting: 5
+    connected: 26
+    acting: 4
   by_consequence:
-    read: 25
-    write: 5
+    read: 26
+    write: 4
   human_in_the_loop_required: 0
 operations:
-- path: /liveness
+- path: /config/network
   method: options
+  operationId: optionsConfigNetwork
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -23,8 +27,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /liveness
+- path: /config/network
   method: get
+  operationId: getConfigNetwork
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -34,6 +39,7 @@ operations:
     audit: none
 - path: /debug/heap
   method: options
+  operationId: optionsDebugHeap
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -43,6 +49,7 @@ operations:
     audit: none
 - path: /debug/heap
   method: get
+  operationId: getDebugHeap
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -50,41 +57,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /version
-  method: options
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /version
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /version
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
 - path: /events
   method: options
+  operationId: optionsEvents
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -94,6 +69,7 @@ operations:
     audit: none
 - path: /events
   method: post
+  operationId: postEvents
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -109,6 +85,7 @@ operations:
     audit: required
 - path: /events/{event_id}
   method: options
+  operationId: optionsEventsByEventId
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -118,6 +95,7 @@ operations:
     audit: none
 - path: /events/{event_id}
   method: get
+  operationId: getEventsByEventId
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -125,8 +103,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /streams/{stream_id}
+- path: /experimental/interests
   method: options
+  operationId: optionsExperimentalInterests
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -134,8 +113,69 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /streams/{stream_id}
+- path: /experimental/interests
   method: get
+  operationId: getExperimentalInterests
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /experimental/events/{sep}/{sepValue}
+  method: options
+  operationId: optionsExperimentalEventsBySepBySepValue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /experimental/events/{sep}/{sepValue}
+  method: get
+  operationId: getExperimentalEventsBySepBySepValue
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /feed/events
+  method: options
+  operationId: optionsFeedEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /feed/events
+  method: get
+  operationId: getFeedEvents
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /feed/resumeToken
+  method: options
+  operationId: optionsFeedResumeToken
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /feed/resumeToken
+  method: get
+  operationId: getFeedResumeToken
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -145,6 +185,7 @@ operations:
     audit: none
 - path: /interests/{sort_key}/{sort_value}
   method: options
+  operationId: optionsInterestsBySortKeyBySortValue
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -154,6 +195,7 @@ operations:
     audit: none
 - path: /interests/{sort_key}/{sort_value}
   method: post
+  operationId: postInterestsBySortKeyBySortValue
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -169,6 +211,7 @@ operations:
     audit: required
 - path: /interests
   method: options
+  operationId: optionsInterests
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -178,6 +221,7 @@ operations:
     audit: none
 - path: /interests
   method: post
+  operationId: postInterests
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -191,8 +235,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /config/network
+- path: /liveness
   method: options
+  operationId: optionsLiveness
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -200,80 +245,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /config/network
+- path: /liveness
   method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /experimental/interests
-  method: options
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /experimental/interests
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /experimental/events/{sep}/{sepValue}
-  method: options
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /experimental/events/{sep}/{sepValue}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /feed/events
-  method: options
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /feed/events
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /feed/resumeToken
-  method: options
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /feed/resumeToken
-  method: get
+  operationId: getLiveness
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -283,6 +257,7 @@ operations:
     audit: none
 - path: /peers
   method: options
+  operationId: optionsPeers
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -292,6 +267,7 @@ operations:
     audit: none
 - path: /peers
   method: get
+  operationId: getPeers
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -301,6 +277,7 @@ operations:
     audit: none
 - path: /peers
   method: post
+  operationId: postPeers
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -314,3 +291,53 @@ operations:
       - abnormal
       - high-value
     audit: required
+- path: /streams/{stream_id}
+  method: options
+  operationId: optionsStreamsByStreamId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /streams/{stream_id}
+  method: get
+  operationId: getStreamsByStreamId
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /version
+  method: options
+  operationId: optionsVersion
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /version
+  method: get
+  operationId: getVersion
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /version
+  method: post
+  operationId: postVersion
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

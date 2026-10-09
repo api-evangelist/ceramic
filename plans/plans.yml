@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: Ceramic Plans
 description: Ceramic is a self-hosted decentralized data network protocol. There
   is no centralized SaaS pricing model — developers run their own Ceramic nodes or
@@ -54,3 +58,27 @@ plans:
   url: https://developers.ceramic.network/docs/protocol/ceramic-one/usage/installation
   rate_limits: []
   estimated_monthly_cost_usd: 0
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models: []
+  units: []
+  plans:
+  - name: Self-Hosted Small App
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Self-Hosted Mid-Sized App
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Local Development
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
