@@ -2,8 +2,11 @@
   "repo": "ceramic",
   "feeds": [
     {
-      "source": "https://forum.ceramic.network/",
-      "error": "URLError"
+      "source": "https://blog.ceramic.network/",
+      "feed_url": "https://blog.ceramic.network/rss/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
     },
     {
       "source": "https://blog.ceramic.network/rss/",
@@ -13,7 +16,7 @@
       "method": "feed"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 21,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "blog_subdomain",
