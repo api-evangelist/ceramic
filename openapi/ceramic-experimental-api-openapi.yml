@@ -147,16 +147,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ErrorResponse:
-      title: Error response
-      description: Error response
-      type: object
-      required:
-      - message
-      properties:
-        message:
-          type: string
-          description: Error message
     BadRequestResponse:
       title: Response to a bad request (400)
       description: Bad request (input error)
@@ -167,6 +157,19 @@ components:
         message:
           type: string
           description: Message describing the error
+    Event:
+      title: A Ceramic Event
+      description: A Ceramic event as part of a Ceramic Stream. Contains both the root CID used to identify the Event as well as the Event payload data.
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          type: string
+          description: Multibase encoding of event root CID bytes.
+        data:
+          type: string
+          description: Multibase encoding of event data.
     InterestsGet:
       title: Information about multiple interests.
       description: Ceramic interest keys
@@ -206,16 +209,13 @@ components:
         isComplete:
           type: boolean
           description: A boolean specifying if there are more events to be fetched. Repeat with the resumeOffset to get next set.
-    Event:
-      title: A Ceramic Event
-      description: A Ceramic event as part of a Ceramic Stream. Contains both the root CID used to identify the Event as well as the Event payload data.
+    ErrorResponse:
+      title: Error response
+      description: Error response
       type: object
       required:
-      - id
+      - message
       properties:
-        id:
+        message:
           type: string
-          description: Multibase encoding of event root CID bytes.
-        data:
-          type: string
-          description: Multibase encoding of event data.
+          description: Error message
