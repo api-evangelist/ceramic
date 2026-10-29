@@ -64,45 +64,170 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Ceramic is a decentralized data network built on a protocol for mutable event streams anchored to Ethereum blockchain. It enables composable, verifiable data infrastructure for Web3 applications — supporting 400+ apps, 10 million streams, and 350 million events across the network.
+Ceramic is a decentralized data network built on a protocol for mutable event streams anchored to blockchain. It provides REST APIs for creating and updating mutable data streams, managing decentralized identifiers (DIDs), registering data interests, and reading stream state and events across the composable data network.
 
-## Overview
+**Areas:** Decentralized · Web3 · Data Streams · DID · IPFS · Blockchain · Event Streaming · ComposeDB
 
-Ceramic organizes data as cryptographically signed events chained into streams. Decentralized Identifiers (DIDs) serve as the identity layer, letting users control their own data without central authorities. Global event ordering is achieved by periodically anchoring Merkle tree roots to Ethereum via the Ceramic Anchor Service (CAS).
+## Ceramic on APIs.io
 
-## APIs
+Everything profiled for Ceramic is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ceramic/](https://apis.io/providers/ceramic/)** — or go straight to one of the APIs or properties below.
 
-- **Ceramic HTTP API** — REST API for streams, events, interests, feed, peers, and node configuration (OpenAPI 3.0, v0.58.0)
-  - `POST /ceramic/events` — Publish a new event to the network
-  - `GET /ceramic/events/{event_id}` — Retrieve an event by CID
-  - `GET /ceramic/streams/{stream_id}` — Get current stream state
-  - `POST /ceramic/interests` — Register interest in a data model/stream
-  - `GET /ceramic/feed/events` — Poll the ordered event feed with resume token support
-  - `GET /ceramic/feed/resumeToken` — Get current highwater mark for the event feed
-  - `GET /ceramic/config/network` — Get network info
-  - `GET /ceramic/liveness` — Node health check
-  - `GET /ceramic/version` — Node version
-  - `GET /ceramic/peers` — List connected peers
-  - `POST /ceramic/peers` — Connect to a peer
+### APIs (10)
 
-## Developer Resources
+- [Ceramic Config API](https://apis.io/apis/ceramic/ceramic-config-api/) — The Config API from Ceramic — 1 operation(s) for config.
+- [Ceramic Debug API](https://apis.io/apis/ceramic/ceramic-debug-api/) — The Debug API from Ceramic — 1 operation(s) for debug.
+- [Ceramic Events API](https://apis.io/apis/ceramic/ceramic-events-api/) — The Events API from Ceramic — 2 operation(s) for events.
+- [Ceramic Experimental API](https://apis.io/apis/ceramic/ceramic-experimental-api/) — The Experimental API from Ceramic — 2 operation(s) for experimental.
+- [Ceramic Feed API](https://apis.io/apis/ceramic/ceramic-feed-api/) — The Feed API from Ceramic — 2 operation(s) for feed.
+- [Ceramic Interests API](https://apis.io/apis/ceramic/ceramic-interests-api/) — The Interests API from Ceramic — 2 operation(s) for interests.
+- [Ceramic Liveness API](https://apis.io/apis/ceramic/ceramic-liveness-api/) — The Liveness API from Ceramic — 1 operation(s) for liveness.
+- [Ceramic Peers API](https://apis.io/apis/ceramic/ceramic-peers-api/) — The Peers API from Ceramic — 1 operation(s) for peers.
+- [Ceramic Streams API](https://apis.io/apis/ceramic/ceramic-streams-api/) — The Streams API from Ceramic — 1 operation(s) for streams.
+- [Ceramic Version API](https://apis.io/apis/ceramic/ceramic-version-api/) — The Version API from Ceramic — 1 operation(s) for version.
 
-- **Documentation**: https://developers.ceramic.network/
-- **GitHub**: https://github.com/ceramicnetwork
-- **Discord**: https://chat.ceramic.network/
-- **Forum**: https://forum.ceramic.network/
-- **Blog**: https://blog.ceramic.network/
-- **Twitter**: https://twitter.com/ceramicnetwork
+### Published properties
 
-## Infrastructure
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Ceramic is a self-hosted protocol. Operators run their own ceramic-one Rust daemon (default port 5101) plus js-ceramic, Postgres, and an Ethereum RPC provider for anchoring. Estimated costs range from ~$106/month for small apps to ~$967/month for high-traffic deployments.
+#### Agentic access (1)
 
-## Legal
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- **Terms of Service**: https://ceramic.network/terms-of-service
-- **Privacy Policy**: https://ceramic.network/privacy-policy
+- [Ceramic Agentic Access](https://apis.io/agentic-access/ceramic/ceramic-agentic-access/)
 
----
+#### JSON Schema (12)
 
-Maintained by [API Evangelist](https://apievangelist.com)
+The data models the API reads and writes.
+
+- [Error response](https://apis.io/schemas/ceramic/ErrorResponse/)
+- [A Ceramic Event](https://apis.io/schemas/ceramic/Event/)
+- [A Ceramic Event Data Payload](https://apis.io/schemas/ceramic/EventData/)
+- [Ceramic Event feed data](https://apis.io/schemas/ceramic/EventFeed/)
+- [Information about multiple events.](https://apis.io/schemas/ceramic/EventsGet/)
+- [A recon interest](https://apis.io/schemas/ceramic/Interest/)
+- [Information about multiple interests.](https://apis.io/schemas/ceramic/InterestsGet/)
+- [Information about the Ceramic network](https://apis.io/schemas/ceramic/NetworkInfo/)
+- [Information about a connected peer](https://apis.io/schemas/ceramic/Peer/)
+- [List of Peers](https://apis.io/schemas/ceramic/Peers/)
+- [State of a Ceramic stream](https://apis.io/schemas/ceramic/StreamState/)
+- [Version](https://apis.io/schemas/ceramic/Version/)
+
+#### Examples (7)
+
+Example requests and responses.
+
+- [Create Event](https://apis.io/examples/ceramic/create-event/)
+- [Get Event](https://apis.io/examples/ceramic/get-event/)
+- [Get Event Feed](https://apis.io/examples/ceramic/get-event-feed/)
+- [Get Network Info](https://apis.io/examples/ceramic/get-network-info/)
+- [Get Peers](https://apis.io/examples/ceramic/get-peers/)
+- [Get Stream State](https://apis.io/examples/ceramic/get-stream-state/)
+- [Register Interest](https://apis.io/examples/ceramic/register-interest/)
+
+#### Collections (10)
+
+Postman and Open Collection request collections.
+
+- [Ceramic Config API](https://apis.io/collections/ceramic/open-ceramic-config-api/)
+- [Ceramic Config Debug API](https://apis.io/collections/ceramic/open-ceramic-debug-api/)
+- [Ceramic Config Events API](https://apis.io/collections/ceramic/open-ceramic-events-api/)
+- [Ceramic Config Experimental API](https://apis.io/collections/ceramic/open-ceramic-experimental-api/)
+- [Ceramic Config Feed API](https://apis.io/collections/ceramic/open-ceramic-feed-api/)
+- [Ceramic Config Interests API](https://apis.io/collections/ceramic/open-ceramic-interests-api/)
+- [Ceramic Config Liveness API](https://apis.io/collections/ceramic/open-ceramic-liveness-api/)
+- [Ceramic Config Peers API](https://apis.io/collections/ceramic/open-ceramic-peers-api/)
+- [Ceramic Config Streams API](https://apis.io/collections/ceramic/open-ceramic-streams-api/)
+- [Ceramic Config Version API](https://apis.io/collections/ceramic/open-ceramic-version-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Ceramic — jsonschema rules](https://apis.io/rules/ceramic/ceramic-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Ceramic Domain Security](https://apis.io/security/ceramic/ceramic-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Plans](https://apis.io/plans/ceramic/plans/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Rate Limits](https://apis.io/rate-limits/ceramic/rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Finops](https://apis.io/finops/ceramic/finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://ceramic.network/)
+- [Documentation](https://developers.ceramic.network/)
+- [Blog](https://blog.ceramic.network/)
+- [Terms of service](https://ceramic.network/terms-of-service)
+- [Privacy policy](https://ceramic.network/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 19.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 35.9 |
+| Contract governance | 9.8 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 7.9 |
+
+**Agent readiness 23.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ceramic/](https://apis.io/providers/ceramic/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Ceramic: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ceramic/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
